@@ -1,11 +1,11 @@
 import './styles/main.scss';
 import image from "./assets/img/webpack.png";
 import { sayHello } from './js/components/seyHello';
-import {createImg} from './js/utils/imgWebpack'
+import { createImg } from './js/utils/imgWebpack'
 
 sayHello();
 const rootHTML = document.getElementById( "root" );
-createImg(rootHTML, image );
+createImg( rootHTML, image );
 
 
 

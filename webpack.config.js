@@ -46,7 +46,7 @@ module.exports = {
 		rules: [
 			{
 				test: /\.js$/,
-				include: path.resolve(__dirname, 'src'),
+				include: path.resolve( __dirname, 'src' ),
 				exclude: /node_modules/, // не обрабатываем файлы из node_modules
 				use: {
 					loader: 'babel-loader',
@@ -58,18 +58,18 @@ module.exports = {
 			},
 			{
 				test: /\.(html)$/,
-				include: path.resolve(__dirname, 'src'),
+				include: path.resolve( __dirname, 'src' ),
 				use: ['html-loader']// Добавляем загрузчик для html
 			},
 			{
 				test: /\.css$/i,
-				include: path.resolve(__dirname, 'src'),
+				include: path.resolve( __dirname, 'src' ),
 				use: [MiniCssExtractPlugin.loader, "css-loader"],
 			},
 
 			{
 				test: /\.(s[ac]|c)ss$/i,
-				include: path.resolve(__dirname, 'src'),
+				include: path.resolve( __dirname, 'src' ),
 				use: [
 					MiniCssExtractPlugin.loader,
 					'css-loader',
@@ -79,14 +79,14 @@ module.exports = {
 			}, // Добавляем загрузчики стилей
 			{
 				test: /\.(png|jpe?g|gif|svg|webp|ico)$/i,
-				include: path.resolve(__dirname, 'src'),
+				include: path.resolve( __dirname, 'src' ),
 				type: mode === 'production' ? 'asset' : 'asset/resource', // В production режиме
 				// изображения размером до 8кб будут встраиваться в код
 				// В режиме разработки все изображения будут помещаться в dist/assets
 			},
 			{
 				test: /\.(woff2?|eot|ttf|otf)$/i,
-				include: path.resolve(__dirname, 'src'),
+				include: path.resolve( __dirname, 'src' ),
 				type: 'asset/resource',
 			},
 		],

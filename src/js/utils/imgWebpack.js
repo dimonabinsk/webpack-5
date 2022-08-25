@@ -1,8 +1,11 @@
-export const createImg = (image) =>
+export const createImg = (rootElem,image) =>
 {
-	const rootHTML = document.getElementById( "root" );
+
 	const imgHtml = document.createElement( "img" );
 	imgHtml.src = image;
 	imgHtml.className = "webpack-img";
-	rootHTML.append( imgHtml );
+	const titlePage = document.createElement("h1");
+	titlePage.textContent = "Привет WebPack";
+	titlePage.className = "webpack-title";
+	rootElem.append(titlePage, imgHtml );
 }

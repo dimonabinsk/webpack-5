@@ -1,4 +1,4 @@
-export const createImg = ( rootElem, rootElem, image ) =>
+export const createImg = ( rootElem, image ) =>
 {
 
 	const imgHtml = document.createElement( "img" );

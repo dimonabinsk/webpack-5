@@ -7,7 +7,7 @@ let target = 'web'; // в режиме разработки browserslist не и
 if ( process.env.NODE_ENV === 'production' ) { // Режим production, если 
 	// при запуске webpack было указано --mode=production
 	mode = 'production';
-	target = 'browserslist'; // в "production" режиме используем browserslist
+	target = 'browserslist'; // в production режиме используем browserslist
 }
 
 module.exports = {
@@ -46,26 +46,30 @@ module.exports = {
 		rules: [
 			{
 				test: /\.js$/,
+				include: path.resolve( __dirname, 'src' ),
 				exclude: /node_modules/, // не обрабатываем файлы из node_modules
 				use: {
 					loader: 'babel-loader',
 					options: {
-						cacheDirectory: true, // Использование кэша для избежания перекомпиляция
+						cacheDirectory: true, // Использование кэша для избежания перекомпиляции
 						// при каждом запуске
 					},
 				},
 			},
 			{
 				test: /\.(html)$/,
+				include: path.resolve( __dirname, 'src' ),
 				use: ['html-loader']// Добавляем загрузчик для html
 			},
 			{
 				test: /\.css$/i,
+				include: path.resolve( __dirname, 'src' ),
 				use: [MiniCssExtractPlugin.loader, "css-loader"],
 			},
 
 			{
 				test: /\.(s[ac]|c)ss$/i,
+				include: path.resolve( __dirname, 'src' ),
 				use: [
 					MiniCssExtractPlugin.loader,
 					'css-loader',
@@ -75,12 +79,14 @@ module.exports = {
 			}, // Добавляем загрузчики стилей
 			{
 				test: /\.(png|jpe?g|gif|svg|webp|ico)$/i,
-				type: mode === 'production' ? 'asset' : 'asset/resource', // В "production" режиме
+				include: path.resolve( __dirname, 'src' ),
+				type: mode === 'production' ? 'asset' : 'asset/resource', // В production режиме
 				// изображения размером до 8кб будут встраиваться в код
 				// В режиме разработки все изображения будут помещаться в dist/assets
 			},
 			{
 				test: /\.(woff2?|eot|ttf|otf)$/i,
+				include: path.resolve( __dirname, 'src' ),
 				type: 'asset/resource',
 			},
 		],

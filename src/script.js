@@ -4,6 +4,6 @@ import { sayHello } from './js/components/seyHello';
 import {createImg} from './js/utils/imgWebpack'
 
 sayHello();
-
-createImg( image );
+const rootHTML = document.getElementById( "root" );
+createImg(rootHTML, image );
 

@@ -3,12 +3,19 @@
 # script
 
   // ...
+
 	"scripts": {
+
       "start": "webpack serve", // Запускает webpack-dev-server
+
       "build": "webpack", // Собирает проект в режиме разработки
+
       "build-prod": "webpack --mode=production", // собирает проект для продакшена
+
       "clean": "rd /s /q dist" // удаляет директорию dist
+
   }
+  
   // ...
 
   # start
